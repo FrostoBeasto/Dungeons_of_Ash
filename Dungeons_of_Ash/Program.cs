@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Dungeons_of_Ash;
+using System.Diagnostics;
 
 Console.WriteLine("Welcome to Dungeons of Ash");
 Thread.Sleep(3000);
@@ -6,6 +7,8 @@ Console.Clear();
 Console.WriteLine("Tell me your name ashen one.");
 var name = Console.ReadLine();
 Thread.Sleep(3000);
+
+Dungeon dng = new Dungeon();
 
 Dictionary<string, int> Stats = new Dictionary<string, int>();
 Stats.Add("Durability", 1);
@@ -101,15 +104,15 @@ while (true)
                             break;
                     }
                     Console.Clear();
-                    switch(option)
-                    {
-                        case 1:
+                }
+                switch (option)
+                {
+                    case 1:
+                        dng.Easy_dng();
+                        break;
+                    case 2:
 
-                            break;
-                        case 2:
-
-                            break;
-                    }
+                        break;
                 }
             }
             break;
