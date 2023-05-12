@@ -1,5 +1,6 @@
 ﻿using Dungeons_of_Ash;
 using System.Diagnostics;
+using System.IO;
 
 Console.WriteLine("Welcome to Dungeons of Ash");
 Thread.Sleep(3000);
@@ -8,8 +9,13 @@ Console.WriteLine("Tell me your name ashen one.");
 var name = Console.ReadLine();
 Thread.Sleep(3000);
 
+Directory.CreateDirectory("items");
+File.WriteAllText("items/items.txt", "tomas");
 Dungeon dng = new Dungeon();
 
+int lvl = 1;
+int exp = 0;
+double exp_max = 1000;
 Dictionary<string, int> Stats = new Dictionary<string, int>();
 Stats.Add("Durability", 1);
 Stats.Add("Physical Power", 1);
@@ -17,6 +23,7 @@ Stats.Add("Spell Power", 1);
 Console.Clear();
 while (true)
 {
+    exp_max = exp_max * 1.5;
     ConsoleKeyInfo key;
     int option = 1;
     bool isSelected = false;
@@ -109,6 +116,9 @@ while (true)
                 {
                     case 1:
                         dng.Easy_dng();
+                        exp += 100;
+                        Thread.Sleep(1500);
+                        Console.Clear();
                         break;
                     case 2:
 
@@ -117,7 +127,11 @@ while (true)
             }
             break;
         case 2: //STATS
-            Console.WriteLine($"name: {name}");
+            if(exp >= exp_max)
+            {
+                lvl++;
+            }
+            Console.WriteLine($"name: {name}    lvl: {lvl}");
             foreach (var att in Stats)
             {
                 Console.WriteLine($"{att.Key}  {att.Value}");
