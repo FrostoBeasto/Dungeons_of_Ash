@@ -64,7 +64,7 @@ namespace Dungeons_of_Ash
             Console.Clear();
             while (playerHp > 0 && enemyHp <= 0 && bossHp >0)
             {
-                Console.WriteLine($"Bossfight time\n--- Player Turn ---\nPlayer Hp - {playerHp}.  Boss Hp - {bossHp}\nChoose your action\n1.Attack Boss with weapon\n2.Use a spell\n3.Use heal");
+                Console.WriteLine($"--- Player Turn ---\nPlayer Hp - {playerHp}.  Boss Hp - {bossHp}\nChoose your action\n1.Attack Boss with weapon\n2.Use a spell\n3.Use heal");
                 var choice = Console.ReadLine();
                 if (choice == "1") 
                 {

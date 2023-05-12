@@ -23,7 +23,6 @@ Stats.Add("Spell Power", 1);
 Console.Clear();
 while (true)
 {
-    exp_max = exp_max * 1.5;
     ConsoleKeyInfo key;
     int option = 1;
     bool isSelected = false;
