@@ -15,6 +15,12 @@ namespace Dungeons_of_Ash
                 , "Molten Forged Mage Armor", "Magmatic Warrior Helmet", "Magmatic Warrior Armor"
                 ,"Magmatic Mage Helmet", "Magmatic Mage Armor"};
 
-        public string[] spells = { "Demonic Blades", "Infernal Orbs", "Molten Spear Blast", "Magma Barrage" };
+        public string[] spells = {"Demonic Blades", "Infernal Orbs", "Molten Spear Blast", "Magma Barrage"};
+
+        public int physical_dmg;
+
+        public int spell_dmg;
+
+        public int Hp;
     }
 }

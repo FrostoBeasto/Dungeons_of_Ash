@@ -100,7 +100,22 @@ namespace Dungeons_of_Ash
                 Thread.Sleep(5000);
                 Console.Clear();
             }
-
+            int rnd_item = rnd.Next(0, 2);
+            for( int i = 0; i < 2;i++)
+            {
+                if(rnd_item == 0)
+                {
+                    int rdn_weapon = rnd.Next(0, 5);
+                }
+                if (rnd_item == 1)
+                {
+                    int rnd_armor = rnd.Next(0, 7);
+                }
+                if (rnd_item == 2)
+                {
+                    int rnd_spell = rnd.Next(0, 3);
+                }
+            }
             if(playerHp > 0)
             {
                 Console.WriteLine($"GG, you won!\nHere are your drops: \nReturning to main menu");
