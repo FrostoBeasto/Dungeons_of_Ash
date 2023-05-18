@@ -2,8 +2,9 @@
 using System.Diagnostics;
 using System.IO;
 
-Console.WriteLine("Welcome to Dungeons of Ash");
-Thread.Sleep(3000);
+string tittle = $" (                                                                               \r\n )\\ )                                                  (        (             )  \r\n(()/(     (          (  (     (                        )\\ )     )\\         ( /(  \r\n /(_))   ))\\   (     )\\))(   ))\\  (    (     (     (  (()/(  ((((_)(   (   )\\()) \r\n(_))_   /((_)  )\\ ) ((_))\\  /((_) )\\   )\\ )  )\\    )\\  /(_))  )\\ _ )\\  )\\ ((_)\\  \r\n |   \\ (_))(  _(_/(  (()(_)(_))  ((_) _(_/( ((_)  ((_)(_) _|  (_)_\\(_)((_)| |(_) \r\n | |) || || || ' \\))/ _` | / -_)/ _ \\| ' \\))(_-< / _ \\ |  _|   / _ \\  (_-<| ' \\  \r\n |___/  \\_,_||_||_| \\__, | \\___|\\___/|_||_| /__/ \\___/ |_|    /_/ \\_\\ /__/|_||_| \r\n                    |___/                                                       ";
+Console.WriteLine(tittle);
+Thread.Sleep(4000);
 Console.Clear();
 Console.WriteLine("Tell me your name ashen one.");
 var name = Console.ReadLine();

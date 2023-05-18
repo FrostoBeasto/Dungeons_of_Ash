@@ -105,15 +105,15 @@ namespace Dungeons_of_Ash
             {
                 if(rnd_item == 0)
                 {
-                    int rdn_weapon = rnd.Next(0, 5);
+                    int rdn_weapon = rnd.Next(0, 7);
                 }
                 if (rnd_item == 1)
                 {
-                    int rnd_armor = rnd.Next(0, 7);
+                    int rnd_armor = rnd.Next(0, 9);
                 }
                 if (rnd_item == 2)
                 {
-                    int rnd_spell = rnd.Next(0, 3);
+                    int rnd_spell = rnd.Next(0, 5);
                 }
             }
             if(playerHp > 0)
