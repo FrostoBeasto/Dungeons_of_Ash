@@ -15,7 +15,6 @@ File.WriteAllText("items/items.txt", "tomas");
 Dungeon dng = new Dungeon();
 Player player = new Player();
 
-int lvl = 1;
 int exp = 0;
 double exp_max = 1000;
 Dictionary<string, int> Stats = new Dictionary<string, int>();
@@ -120,7 +119,7 @@ while (true)
                         exp += 100;
                         if (exp >= exp_max)
                         {
-                            lvl++;
+                            player.lvl++;
                         }
                         Thread.Sleep(1500);
                         Console.Clear();
@@ -132,7 +131,7 @@ while (true)
             }
             break;
         case 2: //STATS
-            Console.WriteLine($"name: {name}    lvl: {lvl}");
+            Console.WriteLine($"name: {name}    lvl: {player.lvl}");
             foreach (var att in Stats)
             {
                 Console.WriteLine($"{att.Key}  {att.Value}");
