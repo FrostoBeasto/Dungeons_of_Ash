@@ -13,6 +13,7 @@ Thread.Sleep(3000);
 Directory.CreateDirectory("items");
 File.WriteAllText("items/items.txt", "tomas");
 Dungeon dng = new Dungeon();
+Player player = new Player();
 
 int lvl = 1;
 int exp = 0;
@@ -117,6 +118,10 @@ while (true)
                     case 1:
                         dng.Easy_dng();
                         exp += 100;
+                        if (exp >= exp_max)
+                        {
+                            lvl++;
+                        }
                         Thread.Sleep(1500);
                         Console.Clear();
                         break;
@@ -127,10 +132,6 @@ while (true)
             }
             break;
         case 2: //STATS
-            if(exp >= exp_max)
-            {
-                lvl++;
-            }
             Console.WriteLine($"name: {name}    lvl: {lvl}");
             foreach (var att in Stats)
             {
@@ -141,7 +142,7 @@ while (true)
             Console.Clear();
             break;
         case 3: //INVENTORY
-
+            Console.WriteLine($"{player.inventory}");
             break;
         case 4: //EXIT
             return;

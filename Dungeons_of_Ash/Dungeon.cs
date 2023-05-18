@@ -10,48 +10,45 @@ namespace Dungeons_of_Ash
     {
         public void Easy_dng()
         {
-            int playerHp = 100;
             int enemyHp = 50;
             int bossHp = 150;
 
-            int playerAttack = 5;
-            int playerSpell = 10;
-            int playerheal = 20;
             int enemyAttack = 5;
             int bossAttack = 6;
             int bossSpell = 8;
             Random rnd = new Random();
             Items drops = new Items();
+            Player player = new Player();
 
-            while(playerHp > 0 && enemyHp > 0)
+            while(player.playerHp > 0 && enemyHp > 0)
             {
-                Console.WriteLine($"--- Player Turn ---\nPlayer Hp - {playerHp}.  Enemy Hp - {enemyHp}\nChoose your action\n1.Attack enemy with weapon\n2.Use a spell\n3.Use heal");
+                Console.WriteLine($"--- Player Turn ---\nPlayer Hp - {player.playerHp}.  Enemy Hp - {enemyHp}\nChoose your action\n1.Attack enemy with weapon\n2.Use a spell\n3.Use heal");
                 var choice = Console.ReadLine();
 
                 if (choice == "1")
                 {
-                    Console.WriteLine($"Player attacks enemy with sword and deals {playerAttack} damage!");
-                    enemyHp -= playerAttack;
+                    Console.WriteLine($"Player attacks enemy with sword and deals {player.playerAttack} damage!");
+                    enemyHp -= player.playerAttack;
                 }
                 if (choice == "2")
                 {
-                    Console.WriteLine($"Player uses a spell on the enemy and deals {playerSpell} damage!");
-                    enemyHp -= playerSpell;
+                    Console.WriteLine($"Player uses a spell on the enemy and deals {player.playerSpell} damage!");
+                    enemyHp -= player.playerSpell;
                 }
                 if(choice == "3")
                 {
-                    Console.WriteLine($"Player uses heal and heals himself for {playerheal} Hp!");
-                    playerHp += playerheal; 
-                    if(playerHp > 100)
+                    Console.WriteLine($"Player uses heal and heals himself for {player.playerheal} Hp!");
+                    player.playerHp += player.playerheal; 
+                    if(player.playerHp > 100)
                     {
-                        playerHp= 100;
+                        player.playerHp = 100;
                     }
                 }
 
                 if(enemyHp >0)
                 {
-                    Console.WriteLine($"--- Enemy turn ---\nPlayer Hp - {playerHp}.  Enemy Hp - {enemyHp}\nEnemy attacks and deals {enemyAttack} damage!");
-                    playerHp -= enemyAttack;
+                    Console.WriteLine($"--- Enemy turn ---\nPlayer Hp - {player.playerHp}.  Enemy Hp - {enemyHp}\nEnemy attacks and deals {enemyAttack} damage!");
+                    player.playerHp -= enemyAttack;
                 }
                 Thread.Sleep(5000);
                 Console.Clear();
@@ -62,39 +59,39 @@ namespace Dungeons_of_Ash
             Console.WriteLine("BOSSFIGHT TIME");
             Thread.Sleep(3000);
             Console.Clear();
-            while (playerHp > 0 && enemyHp <= 0 && bossHp >0)
+            while (player.playerHp > 0 && enemyHp <= 0 && bossHp >0)
             {
-                Console.WriteLine($"--- Player Turn ---\nPlayer Hp - {playerHp}.  Boss Hp - {bossHp}\nChoose your action\n1.Attack Boss with weapon\n2.Use a spell\n3.Use heal");
+                Console.WriteLine($"--- Player Turn ---\nPlayer Hp - {player.playerHp}.  Boss Hp - {bossHp}\nChoose your action\n1.Attack Boss with weapon\n2.Use a spell\n3.Use heal");
                 var choice = Console.ReadLine();
                 if (choice == "1") 
                 {
-                    Console.WriteLine($"Player attacks Boss with sword and deals {playerAttack} damage!");
-                    bossHp -= playerAttack;
+                    Console.WriteLine($"Player attacks Boss with sword and deals {player.playerAttack} damage!");
+                    bossHp -= player.playerAttack;
                 }
                 if (choice == "2")
                 {
-                    Console.WriteLine($"Player uses a spell on the Boss and deals {playerSpell} damage!");
-                    bossHp -= playerSpell;
+                    Console.WriteLine($"Player uses a spell on the Boss and deals {player.playerSpell} damage!");
+                    bossHp -= player.playerSpell;
                 }
                 if (choice == "3")
                 {
-                    Console.WriteLine($"Player uses heal and heals himself for {playerheal} Hp!");
-                    playerHp += playerheal;
+                    Console.WriteLine($"Player uses heal and heals himself for {player.playerheal} Hp!");
+                    player.playerHp += player.playerHp;
                 }
 
                 int bosschoice = rnd.Next(0, 2);
                 if(bossHp > 0)
                 {
-                    Console.WriteLine($"--- Boss turn ---\nPlayer Hp - {playerHp}.  Boss Hp - {bossHp}");
+                    Console.WriteLine($"--- Boss turn ---\nPlayer Hp - {player.playerHp}.  Boss Hp - {bossHp}");
                     if(bosschoice == 0)
                     {
                         Console.WriteLine($"Boss attacks and deals {bossAttack} damage!");
-                        playerHp -= bossAttack;
+                        player.playerHp -= bossAttack;
                     }
                     if (bosschoice == 1)
                     {
                         Console.WriteLine($"Boss uses a spell and deals {bossSpell} damage!");
-                        playerHp -= bossSpell;
+                        player.playerHp -= bossSpell;
                     }
                 }
                 Thread.Sleep(5000);
@@ -116,7 +113,7 @@ namespace Dungeons_of_Ash
                     int rnd_spell = rnd.Next(0, 5);
                 }
             }
-            if(playerHp > 0)
+            if(player.playerHp > 0)
             {
                 Console.WriteLine($"GG, you won!\nHere are your drops: \nReturning to main menu");
             }
