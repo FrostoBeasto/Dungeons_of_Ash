@@ -100,17 +100,20 @@ namespace Dungeons_of_Ash
             int rnd_item = rnd.Next(0, 2);
             for( int i = 0; i < 2;i++)
             {
-                if(rnd_item == 0)
+                if (rnd_item == 0)
                 {
-                    int rdn_weapon = rnd.Next(0, 7);
+                    int rnd_weapon = rnd.Next(0, 6);
+                    player.inventory.Add($"{drops.weapons[rnd_weapon]}");
                 }
                 if (rnd_item == 1)
                 {
                     int rnd_armor = rnd.Next(0, 9);
+                    player.inventory.Add($"{drops.weapons[rnd_armor]}");
                 }
                 if (rnd_item == 2)
                 {
                     int rnd_spell = rnd.Next(0, 5);
+                    player.inventory.Add($"{drops.weapons[rnd_spell]}");
                 }
             }
             if(player.playerHp > 0)

@@ -147,3 +147,7 @@ while (true)
             return;
     }
 }
+//Fix inventory 
+//Add dmg to drops
+//second difficulty
+//upgrades for items
