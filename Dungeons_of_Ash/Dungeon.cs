@@ -8,7 +8,7 @@ namespace Dungeons_of_Ash
 {
     internal class Dungeon
     {
-        public void Easy_dng()
+        public Player Easy_dng()
         {
             int enemyHp = 50;
             int bossHp = 150;
@@ -107,12 +107,12 @@ namespace Dungeons_of_Ash
                 }
                 if (rnd_item == 1)
                 {
-                    int rnd_armor = rnd.Next(0, 9);
+                    int rnd_armor = rnd.Next(0, 8);
                     player.inventory.Add($"{drops.weapons[rnd_armor]}");
                 }
                 if (rnd_item == 2)
                 {
-                    int rnd_spell = rnd.Next(0, 5);
+                    int rnd_spell = rnd.Next(0, 4);
                     player.inventory.Add($"{drops.weapons[rnd_spell]}");
                 }
             }
@@ -124,6 +124,7 @@ namespace Dungeons_of_Ash
             {
                 Console.WriteLine("Unlucky, you lost\nReturning to main menu.");
             }
+            return player;
         }
     }
 }
