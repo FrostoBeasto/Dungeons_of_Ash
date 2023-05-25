@@ -14,8 +14,8 @@ namespace Dungeons_of_Ash
         public int playerHp = 100;
         public int lvl = 1;
 
-        public int playerAttack = 500;
-        public int playerSpell = 10;
+        public int playerAttack = Items.physical_dmg;
+        public int playerSpell = 200;
         public int playerheal = 20;
     }
 }

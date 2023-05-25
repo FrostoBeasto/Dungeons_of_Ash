@@ -8,6 +8,6 @@ namespace Dungeons_of_Ash
 {
     internal class Enemies
     {
-      
+        
     }
 }

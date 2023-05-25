@@ -17,10 +17,10 @@ namespace Dungeons_of_Ash
 
         public static string[] spells = {"Demonic Blades", "Infernal Orbs", "Molten Spear Blast", "Magma Barrage"};
 
-        public int physical_dmg;
+        public static int physical_dmg;
 
-        public int spell_dmg;
+        public static int spell_dmg;
 
-        public int Hp;
+        public static int Hp;
     }
 }

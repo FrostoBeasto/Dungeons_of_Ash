@@ -17,7 +17,6 @@ namespace Dungeons_of_Ash
             int bossAttack = 6;
             int bossSpell = 8;
             Random rnd = new Random();
-            Items drops = new Items();
             Player player = new Player();
 
             while(player.playerHp > 0 && enemyHp > 0)
@@ -97,9 +96,9 @@ namespace Dungeons_of_Ash
                 Thread.Sleep(5000);
                 Console.Clear();
             }
-            int rnd_item = rnd.Next(0, 3);
             for( int i = 0; i < 2;i++)
             {
+                int rnd_item = rnd.Next(0, 3);
                 if (rnd_item == 0)
                 {
                     int rnd_weapon = rnd.Next(0, 6);
@@ -109,6 +108,7 @@ namespace Dungeons_of_Ash
                 {
                     int rnd_armor = rnd.Next(0, 8);
                     Player.inventory.Add($"{Items.armors[rnd_armor]}");
+                    Items.physical_dmg = rnd.Next(20, 31);
                 }
                 if (rnd_item == 2)
                 {
@@ -131,7 +131,6 @@ namespace Dungeons_of_Ash
             {
                 Console.WriteLine("Unlucky, you lost\nReturning to main menu.");
             }
-            
         }
     }
 }
