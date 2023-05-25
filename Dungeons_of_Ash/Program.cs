@@ -121,11 +121,6 @@ while (true)
                         {
                             player.lvl++;
                         }
-                        foreach (string vec in player.inventory)
-                        {
-                            Console.WriteLine(vec);
-                            Thread.Sleep(3000);
-                        }
                         Thread.Sleep(1500);
                         Console.Clear();
                         break;
@@ -146,13 +141,13 @@ while (true)
             Console.Clear();
             break;
         case 3: //INVENTORY
-            if (player.inventory.Count == 0)
+            if (Player.inventory.Count == 0)
             {
                 Console.WriteLine("nic nemash");
             }
             else
             {
-                foreach (string vec in player.inventory)
+                foreach (string vec in Player.inventory)
                 {
                     Console.WriteLine(vec);
                 }
@@ -162,7 +157,6 @@ while (true)
             return;
     }
 }
-//Fix inventory 
 //Add dmg to drops
 //add more enemies
 //second difficulty

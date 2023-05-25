@@ -8,7 +8,7 @@ namespace Dungeons_of_Ash
 {
     internal class Player
     {
-        public List<string> inventory = new List<string>();
+        public static List<string> inventory = new List<string>();
 
         
         public int playerHp = 100;

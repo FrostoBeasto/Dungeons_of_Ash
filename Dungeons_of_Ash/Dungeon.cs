@@ -8,7 +8,7 @@ namespace Dungeons_of_Ash
 {
     internal class Dungeon
     {
-        public Player Easy_dng()
+        public void Easy_dng()
         {
             int enemyHp = 50;
             int bossHp = 150;
@@ -98,34 +98,40 @@ namespace Dungeons_of_Ash
                 Console.Clear();
             }
             int rnd_item = rnd.Next(0, 3);
-            for( int i = 0; i <= 2;i++)
+            for( int i = 0; i < 2;i++)
             {
                 if (rnd_item == 0)
                 {
                     int rnd_weapon = rnd.Next(0, 6);
-                    player.inventory.Add($"{drops.weapons[rnd_weapon]}");
+                    Player.inventory.Add($"{Items.weapons[rnd_weapon]}");
                 }
                 if (rnd_item == 1)
                 {
                     int rnd_armor = rnd.Next(0, 8);
-                    player.inventory.Add($"{drops.armors[rnd_armor]}");
+                    Player.inventory.Add($"{Items.armors[rnd_armor]}");
                 }
                 if (rnd_item == 2)
                 {
                     int rnd_spell = rnd.Next(0, 4);
-                    player.inventory.Add($"{drops.spells[rnd_spell]}");
+                    Player.inventory.Add($"{Items.spells[rnd_spell]}");
                 }
             }
             if(player.playerHp > 0)
             {
-                Console.WriteLine($"GG, you won!\nHere are your drops: {player.inventory} \nReturning to main menu");
-                Console.ReadLine();
+                Console.WriteLine($"GG, you won!\nHere are your drops:");
+                foreach (string vec in Player.inventory)
+                {
+                    Console.WriteLine(vec);
+                    Thread.Sleep(1500);
+                }
+                Thread.Sleep(5000);
+                Console.WriteLine("Returning to main menu");
             }
             else
             {
                 Console.WriteLine("Unlucky, you lost\nReturning to main menu.");
             }
-            return player;
+            
         }
     }
 }
