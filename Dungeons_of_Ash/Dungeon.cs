@@ -97,8 +97,8 @@ namespace Dungeons_of_Ash
                 Thread.Sleep(5000);
                 Console.Clear();
             }
-            int rnd_item = rnd.Next(0, 2);
-            for( int i = 0; i < 2;i++)
+            int rnd_item = rnd.Next(0, 3);
+            for( int i = 0; i <= 2;i++)
             {
                 if (rnd_item == 0)
                 {
@@ -108,17 +108,18 @@ namespace Dungeons_of_Ash
                 if (rnd_item == 1)
                 {
                     int rnd_armor = rnd.Next(0, 8);
-                    player.inventory.Add($"{drops.weapons[rnd_armor]}");
+                    player.inventory.Add($"{drops.armors[rnd_armor]}");
                 }
                 if (rnd_item == 2)
                 {
                     int rnd_spell = rnd.Next(0, 4);
-                    player.inventory.Add($"{drops.weapons[rnd_spell]}");
+                    player.inventory.Add($"{drops.spells[rnd_spell]}");
                 }
             }
             if(player.playerHp > 0)
             {
-                Console.WriteLine($"GG, you won!\nHere are your drops: \nReturning to main menu");
+                Console.WriteLine($"GG, you won!\nHere are your drops: {player.inventory} \nReturning to main menu");
+                Console.ReadLine();
             }
             else
             {
