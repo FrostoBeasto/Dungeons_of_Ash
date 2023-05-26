@@ -77,7 +77,7 @@ namespace Dungeons_of_Ash
                 if (choice == "3")
                 {
                     Console.WriteLine($"Player uses heal and heals himself for {player.playerheal} Hp!");
-                    player.playerHp += player.playerHp;
+                    player.playerHp += player.playerheal;
                 }
 
                 int bosschoice = rnd.Next(0, 2);
@@ -104,16 +104,19 @@ namespace Dungeons_of_Ash
                 if (rnd_item == 0)
                 {
                     int rnd_weapon = rnd.Next(0, 6);
+                    int weapon_dmg = rnd.Next(20, 31);
                     item_drops += Items.weapons[rnd_weapon] + " ,";
                     Player.inventory.Add($"{Items.weapons[rnd_weapon]}");
-                    Items.items_stats.Add($"{Items.weapons[rnd_weapon]}", rnd.Next(20, 31));
+                    Items.items_stats.Add($"{Items.weapons[rnd_weapon]}", weapon_dmg);
                 }
                 if (rnd_item == 1)
                 {
                     int rnd_armor = rnd.Next(0, 8);
+                    int armor_dmg = rnd.Next(15, 23);
                     item_drops += Items.armors[rnd_armor] + " ,";
                     Player.inventory.Add($"{Items.armors[rnd_armor]}");
-                    Items.physical_dmg = rnd.Next(20, 31);
+                    Items.items_stats.Add($"{Items.weapons[rnd_armor]}", armor_dmg);
+                    Items.physical_dmg = armor_dmg;
                 }
                 if (rnd_item == 2)
                 {
