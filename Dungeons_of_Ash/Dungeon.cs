@@ -19,6 +19,8 @@ namespace Dungeons_of_Ash
             Random rnd = new Random();
             Player player = new Player();
 
+            string item_drops = "";
+
             while(player.playerHp > 0 && enemyHp > 0)
             {
                 Console.WriteLine($"--- Player Turn ---\nPlayer Hp - {player.playerHp}.  Enemy Hp - {enemyHp}\nChoose your action\n1.Attack enemy with weapon\n2.Use a spell\n3.Use heal");
@@ -102,28 +104,27 @@ namespace Dungeons_of_Ash
                 if (rnd_item == 0)
                 {
                     int rnd_weapon = rnd.Next(0, 6);
+                    item_drops += Items.weapons[rnd_weapon] + " ,";
                     Player.inventory.Add($"{Items.weapons[rnd_weapon]}");
+                    Items.items_stats.Add($"{Items.weapons[rnd_weapon]}", rnd.Next(20, 31));
                 }
                 if (rnd_item == 1)
                 {
                     int rnd_armor = rnd.Next(0, 8);
+                    item_drops += Items.armors[rnd_armor] + " ,";
                     Player.inventory.Add($"{Items.armors[rnd_armor]}");
                     Items.physical_dmg = rnd.Next(20, 31);
                 }
                 if (rnd_item == 2)
                 {
                     int rnd_spell = rnd.Next(0, 4);
+                    item_drops += Items.spells[rnd_spell] + " ,";
                     Player.inventory.Add($"{Items.spells[rnd_spell]}");
                 }
             }
             if(player.playerHp > 0)
             {
-                Console.WriteLine($"GG, you won!\nHere are your drops:");
-                foreach (string vec in Player.inventory)
-                {
-                    Console.WriteLine(vec);
-                    Thread.Sleep(1500);
-                }
+                Console.WriteLine($"GG, you won!\nHere are your drops: {item_drops}");
                 Thread.Sleep(5000);
                 Console.WriteLine("Returning to main menu");
             }

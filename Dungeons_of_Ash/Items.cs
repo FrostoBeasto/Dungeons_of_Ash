@@ -17,6 +17,8 @@ namespace Dungeons_of_Ash
 
         public static string[] spells = {"Demonic Blades", "Infernal Orbs", "Molten Spear Blast", "Magma Barrage"};
 
+        public static Dictionary<string, int> items_stats = new Dictionary<string, int>();
+
         public static int physical_dmg;
 
         public static int spell_dmg;

@@ -66,7 +66,7 @@ while (true)
                         Thread.Sleep(1500);
                         Console.Clear();
                         break;
-                    case "2":
+                    case "Normal":
 
                         break;
                 }
@@ -93,7 +93,14 @@ while (true)
                 {
                     Console.WriteLine(vec);
                 }
+                foreach(var items_att in Items.items_stats)
+                {
+                    Console.WriteLine($"{items_att.Key}   Damage: {items_att.Value}");
+                }
             }
+            Console.WriteLine("Pro pokračování stiskni tlačítko na klávesnici.");
+            Console.ReadLine();
+            Console.Clear();
             break;
         case "Exit": //EXIT
             return;
@@ -103,3 +110,4 @@ while (true)
 //add more enemies
 //second difficulty
 //upgrades for items
+//Stats upgrade
