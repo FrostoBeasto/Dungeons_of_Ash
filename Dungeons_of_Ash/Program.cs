@@ -100,7 +100,6 @@ while (true)
                 {
                     Console.WriteLine($"{items_att.Key}   Damage: {items_att.Value}");
                 }
-
             }
             Console.WriteLine("Pro pokračování stiskni tlačítko na klávesnici.");
             Console.ReadLine();
