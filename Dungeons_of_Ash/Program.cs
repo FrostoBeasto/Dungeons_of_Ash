@@ -9,6 +9,12 @@ Thread.Sleep(4000);
 Console.Clear();
 Console.WriteLine("Tell me your name ashen one.");
 var name = Console.ReadLine();
+if(name == "Admin")
+{
+    Items.physical_dmg += 1000;
+    Items.spell_dmg += 1000;
+    Items.Hp += 1000;
+}
 Thread.Sleep(3000);
 
 Directory.CreateDirectory("items");
@@ -45,7 +51,7 @@ while (true)
                 .AddChoices(new[] {
                    "Lava Catacombs", "Coming Soon"
                 }));
-            if (option == "Lava Catacombs")
+            if (option == "Lava Catacombs") //DIFFICULTY MENU
             {
                 option = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
@@ -74,9 +80,10 @@ while (true)
             break;
         case "Stats": //STATS
             Console.WriteLine($"name: {name}    lvl: {player.lvl}");
+            Console.WriteLine($"Hp :  {player.playerHp}\nPhysical dmg :  {player.playerAttack}\nSpell dmg :  {player.playerSpell}");
             foreach (var att in Stats)
             {
-                Console.WriteLine($"{att.Key}  {att.Value}");
+                Console.WriteLine($"{att.Key} lvl:  {att.Value}");
             }
             Console.WriteLine("Pro pokračování stiskni tlačítko na klávesnici.");
             Console.ReadLine();
@@ -89,14 +96,11 @@ while (true)
             }
             else
             {
-                foreach (string vec in Player.inventory)
-                {
-                    Console.WriteLine(vec);
-                }
-                foreach(var items_att in Items.items_stats)
+                foreach (var items_att in Items.items_stats)
                 {
                     Console.WriteLine($"{items_att.Key}   Damage: {items_att.Value}");
                 }
+
             }
             Console.WriteLine("Pro pokračování stiskni tlačítko na klávesnici.");
             Console.ReadLine();
