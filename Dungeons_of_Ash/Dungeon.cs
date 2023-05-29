@@ -142,7 +142,7 @@ namespace Dungeons_of_Ash
                     }
                     if (rnd_item == 1)
                     {
-                        int rnd_armor = rnd.Next(0, 5);
+                        int rnd_armor = rnd.Next(0, 3);
                         int armor_dmg = rnd.Next(15, 23);
                         int armor_hp = rnd.Next(10, 16);
                         item_drops += Items.easy_armors[rnd_armor] + " ,";
@@ -160,7 +160,7 @@ namespace Dungeons_of_Ash
                     }
                     if (rnd_item == 2)
                     {
-                        int rnd_spell = rnd.Next(0, 3);
+                        int rnd_spell = rnd.Next(0, 2);
                         item_drops += Items.easy_spells[rnd_spell] + " ,";
                         Player.inventory.Add($"{Items.easy_spells[rnd_spell]}");
                     }

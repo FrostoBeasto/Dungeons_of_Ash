@@ -115,12 +115,14 @@ while (true)
                         if (equip.EndsWith("Staff"))
                         {
                             Items.spell_dmg += hodnota;
+                            Console.WriteLine("negr");
                         }
                         else
                         {
                             Items.physical_dmg += hodnota;
                         }
-                    }
+                    } 
+                    //tombert<visualstudio to be continued
                 }
                 else
                 {
