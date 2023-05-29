@@ -90,20 +90,44 @@ while (true)
             Console.Clear();
             break;
         case "Inventory": //INVENTORY
-            if (Player.inventory.Count == 0)
+            while (true)
             {
-                Console.WriteLine("nic nemash");
-            }
-            else
-            {
-                foreach (var items_att in Items.items_stats)
+                if (Player.inventory.Count == 0)
                 {
-                    Console.WriteLine($"{items_att.Key}   Damage: {items_att.Value}");
+                    Console.WriteLine("nic nemash");
+                }
+                else
+                {
+                    foreach (var items_att in Items.items_stats)
+                    {
+                        Console.WriteLine($"{items_att.Key}   Damage: {items_att.Value}");
+                    }
+                }
+                Console.WriteLine("Pro equipnutí itemu napiš Yes, Pro vracení do jmenu zmáčkni jakoukoliv klávesu.");
+                string volba = Console.ReadLine();
+                if(volba == "Yes")
+                {
+                    Console.WriteLine("Napiš jméno itemu který chceš equipnout");
+                    string equip = Console.ReadLine();
+                    if (Player.inventory.Contains(equip))
+                    {
+                        int hodnota = Items.items_stats[equip];
+                        if (equip.EndsWith("Staff"))
+                        {
+                            Items.spell_dmg += hodnota;
+                        }
+                        else
+                        {
+                            Items.physical_dmg += hodnota;
+                        }
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    break;
                 }
             }
-            Console.WriteLine("Pro pokračování stiskni tlačítko na klávesnici.");
-            Console.ReadLine();
-            Console.Clear();
             break;
         case "Exit": //EXIT
             return;

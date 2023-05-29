@@ -126,7 +126,7 @@ namespace Dungeons_of_Ash
                     int rnd_item = rnd.Next(0, 3);
                     if (rnd_item == 0)
                     {
-                        int rnd_weapon = rnd.Next(0, 3);
+                        int rnd_weapon = rnd.Next(0, 2);
                         int weapon_dmg = rnd.Next(20, 31);
                         item_drops += Items.easy_weapons[rnd_weapon] + " ,";
                         Player.inventory.Add($"{Items.easy_weapons[rnd_weapon]}");
