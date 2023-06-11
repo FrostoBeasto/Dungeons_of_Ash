@@ -112,14 +112,26 @@ while (true)
                     if (Player.inventory.Contains(equip))
                     {
                         int hodnota = Items.items_stats[equip];
-                        if (equip.EndsWith("Staff"))
+                        switch(equip)
                         {
-                            Items.spell_dmg += hodnota;
-                            Console.WriteLine("negr");
-                        }
-                        else
-                        {
-                            Items.physical_dmg += hodnota;
+                            case "Lava Shard Staff":
+                                Items.spell_dmg += hodnota;
+                                break;
+                            case "Hellstone Greataxe":
+                                Items.physical_dmg += hodnota;
+                                break;
+                            case "Molten Forged Warrior Helmet":
+                                Items.physical_dmg += hodnota;
+                                break;
+                            case "Molten Forged Warrior Armor":
+                                Items.physical_dmg += hodnota;
+                                break;
+                            case "Molten Forged Mage Helmet":
+                                Items.spell_dmg += hodnota;
+                                break;
+                            case "Molten Forged Mage Armor":
+                                Items.spell_dmg += hodnota;
+                                break;
                         }
                     } 
                     //tombert<visualstudio to be continued

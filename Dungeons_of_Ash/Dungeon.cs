@@ -67,7 +67,7 @@ namespace Dungeons_of_Ash
             }
             Console.WriteLine("GG, you reached the last room with heavy door.");
             Thread.Sleep(2000);
-            Console.WriteLine("As you open the door you notice some big figure as you look closely you relise");
+            Console.WriteLine("As you open the door you notice some big figure as you look closely you realise");
             Console.WriteLine("BOSSFIGHT TIME");
             Thread.Sleep(3000);
             Console.Clear();
@@ -119,11 +119,12 @@ namespace Dungeons_of_Ash
                 Thread.Sleep(5000);
                 Console.Clear();
             }
+            int rnd_item = 0;
             if(player.playerHp > 0)
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    int rnd_item = rnd.Next(0, 3);
+                    rnd_item = rnd.Next(0, 3);
                     if (rnd_item == 0)
                     {
                         int rnd_weapon = rnd.Next(0, 2);
@@ -131,14 +132,6 @@ namespace Dungeons_of_Ash
                         item_drops += Items.easy_weapons[rnd_weapon] + " ,";
                         Player.inventory.Add($"{Items.easy_weapons[rnd_weapon]}");
                         Items.items_stats.Add($"{Items.easy_weapons[rnd_weapon]}", weapon_dmg);
-                        if (item_drops == "Hellstone Greataxe")
-                        {
-                            Items.physical_dmg += weapon_dmg;
-                        }
-                        else if (item_drops == "Lava Shard Staff")
-                        {
-                            Items.spell_dmg += weapon_dmg;
-                        }
                     }
                     if (rnd_item == 1)
                     {
@@ -148,14 +141,6 @@ namespace Dungeons_of_Ash
                         item_drops += Items.easy_armors[rnd_armor] + " ,";
                         Player.inventory.Add($"{Items.easy_armors[rnd_armor]}");
                         Items.items_stats.Add($"{Items.easy_weapons[rnd_armor]}", armor_dmg);
-                        if (item_drops == "Molten Forged Warrior Helmet" || item_drops == "Molten Forged Warrior Armor")
-                        {
-                            Items.physical_dmg += armor_dmg;
-                        }
-                        else if (item_drops == "Molten Forged Mage Helmet" || item_drops == "Molten Forged Mage Armor")
-                        {
-                            Items.spell_dmg += armor_dmg;
-                        }
                         Items.Hp += armor_hp;
                     }
                     if (rnd_item == 2)
