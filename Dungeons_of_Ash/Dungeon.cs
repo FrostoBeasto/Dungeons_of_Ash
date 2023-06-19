@@ -131,6 +131,20 @@ namespace Dungeons_of_Ash
                         int weapon_dmg = rnd.Next(20, 31);
                         item_drops += Items.easy_weapons[rnd_weapon] + " ,";
                         Player.inventory.Add($"{Items.easy_weapons[rnd_weapon]}");
+                        if(Items.items_stats.ContainsKey(Items.easy_weapons[rnd_weapon]));
+                        {
+                            var klic = Items.items_stats.FirstOrDefault(x => x.Value == "one").Key;
+                            int Oldweapon_dmg = Items.items_stats[klic];
+                            if (weapon_dmg > Oldweapon_dmg)
+                            {
+                                Items.items_stats.Remove(klic);
+                                Items.items_stats.Add($"{Items.easy_weapons[rnd_weapon]}", weapon_dmg);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Negr");
+                            }
+                        }
                         Items.items_stats.Add($"{Items.easy_weapons[rnd_weapon]}", weapon_dmg);
                     }
                     if (rnd_item == 1)
@@ -140,7 +154,23 @@ namespace Dungeons_of_Ash
                         int armor_hp = rnd.Next(10, 16);
                         item_drops += Items.easy_armors[rnd_armor] + " ,";
                         Player.inventory.Add($"{Items.easy_armors[rnd_armor]}");
-                        Items.items_stats.Add($"{Items.easy_weapons[rnd_armor]}", armor_dmg);
+                        if (Items.items_stats.ContainsKey(Items.easy_armors[rnd_armor]))
+                        {
+                            string klic = Items.easy_weapons[rnd_armor];
+                            if (armor_dmg > Items.items_stats[klic])
+                            {
+                                Items.items_stats.Remove(klic);
+                                Items.items_stats.Add($"{Items.easy_armors[rnd_armor]}", armor_dmg);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Negr");
+                            }
+                        }
+                        else
+                        {
+                            Items.items_stats.Add($"{Items.easy_armors[rnd_armor]}", armor_dmg);
+                        }
                         Items.Hp += armor_hp;
                     }
                     if (rnd_item == 2)
