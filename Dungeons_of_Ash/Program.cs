@@ -85,8 +85,8 @@ while (true)
             {
                 Console.WriteLine($"{att.Key} lvl:  {att.Value}");
             }
-            Console.WriteLine("Pro pokračování stiskni tlačítko na klávesnici.");
-            Console.ReadLine();
+            Console.WriteLine("Press any button to continue");
+            Console.ReadKey();
             Console.Clear();
             break;
         case "Inventory": //INVENTORY
@@ -103,11 +103,11 @@ while (true)
                         Console.WriteLine($"{items_att.Key}   Damage: {items_att.Value}");
                     }
                 }
-                Console.WriteLine("Pro equipnutí itemu napiš Yes, Pro vracení do jmenu zmáčkni jakoukoliv klávesu.");
+                Console.WriteLine("Would you like to equip and item? (Y/N)");
                 string volba = Console.ReadLine();
-                if(volba == "Yes")
+                if (volba.ToUpper() == "Y")
                 {
-                    Console.WriteLine("Napiš jméno itemu který chceš equipnout");
+                    Console.WriteLine("Type the name of the item you would like to equip");
                     string equip = Console.ReadLine();
                     if (Player.inventory.Contains(equip))
                     {
@@ -133,7 +133,11 @@ while (true)
                                 Items.spell_dmg += hodnota;
                                 break;
                         }
-                    } 
+                    }
+                    else
+                    {
+                        Console.WriteLine("Sorry that item doesnt exist or cant be equipped");
+                    }
                     //tombert<visualstudio to be continued
                 }
                 else
@@ -147,7 +151,6 @@ while (true)
             return;
     }
 }
-//Add dmg to drops
 //add more enemies
 //second difficulty
 //upgrades for items

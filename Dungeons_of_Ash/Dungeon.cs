@@ -65,11 +65,14 @@ namespace Dungeons_of_Ash
                 Thread.Sleep(5000);
                 Console.Clear();
             }
-            Console.WriteLine("GG, you reached the last room with heavy door.");
-            Thread.Sleep(2000);
-            Console.WriteLine("As you open the door you notice some big figure as you look closely you realise");
-            Console.WriteLine("BOSSFIGHT TIME");
-            Thread.Sleep(3000);
+            Console.WriteLine("Ashen one, though has slain every one.");
+            Thread.Sleep(1500);
+            Console.WriteLine("Only the Ashen Lord stands.");
+            Thread.Sleep(1500);
+            Console.ForegroundColor= ConsoleColor.Red;
+            Console.WriteLine("!!BOSSFIGHT!!");
+            Console.ReadKey();
+            Console.ResetColor();
             Console.Clear();
             while (player.playerHp > 0 && enemyHp <= 0 && bossHp >0)
             {
@@ -131,21 +134,20 @@ namespace Dungeons_of_Ash
                         int weapon_dmg = rnd.Next(20, 31);
                         item_drops += Items.easy_weapons[rnd_weapon] + " ,";
                         Player.inventory.Add($"{Items.easy_weapons[rnd_weapon]}");
-                        if(Items.items_stats.ContainsKey(Items.easy_weapons[rnd_weapon]));
+                        if (!Items.items_stats.ContainsKey(Items.easy_weapons[rnd_weapon]) == true)
                         {
-                            var klic = Items.items_stats.FirstOrDefault(x => x.Value == "one").Key;
-                            int Oldweapon_dmg = Items.items_stats[klic];
+                            Items.items_stats.Add($"{Items.easy_weapons[rnd_weapon]}", weapon_dmg);
+                        }
+                        if (Items.items_stats.ContainsKey(Items.easy_weapons[rnd_weapon]));
+                        {
+                            string klic = Items.easy_weapons[rnd_weapon];
+                            var Oldweapon_dmg = Items.items_stats[klic];
                             if (weapon_dmg > Oldweapon_dmg)
                             {
                                 Items.items_stats.Remove(klic);
                                 Items.items_stats.Add($"{Items.easy_weapons[rnd_weapon]}", weapon_dmg);
                             }
-                            else
-                            {
-                                Console.WriteLine("Negr");
-                            }
                         }
-                        Items.items_stats.Add($"{Items.easy_weapons[rnd_weapon]}", weapon_dmg);
                     }
                     if (rnd_item == 1)
                     {
@@ -154,22 +156,19 @@ namespace Dungeons_of_Ash
                         int armor_hp = rnd.Next(10, 16);
                         item_drops += Items.easy_armors[rnd_armor] + " ,";
                         Player.inventory.Add($"{Items.easy_armors[rnd_armor]}");
-                        if (Items.items_stats.ContainsKey(Items.easy_armors[rnd_armor]))
-                        {
-                            string klic = Items.easy_weapons[rnd_armor];
-                            if (armor_dmg > Items.items_stats[klic])
-                            {
-                                Items.items_stats.Remove(klic);
-                                Items.items_stats.Add($"{Items.easy_armors[rnd_armor]}", armor_dmg);
-                            }
-                            else
-                            {
-                                Console.WriteLine("Negr");
-                            }
-                        }
-                        else
+                        if (!Items.items_stats.ContainsKey(Items.easy_armors[rnd_armor]) == true) 
                         {
                             Items.items_stats.Add($"{Items.easy_armors[rnd_armor]}", armor_dmg);
+                        }
+                        if (Items.items_stats.ContainsKey(Items.easy_armors[rnd_armor]))
+                        {
+                            string klic = Items.easy_armors[rnd_armor];
+                            var Oldarmor_dmg = Items.items_stats[klic];
+                            if (armor_dmg > Oldarmor_dmg)
+                            {
+                                Items.items_stats.Remove(klic);
+                                Items.items_stats.Add($"{Items.easy_weapons[rnd_armor]}", armor_dmg);
+                            }
                         }
                         Items.Hp += armor_hp;
                     }
