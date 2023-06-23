@@ -138,7 +138,7 @@ namespace Dungeons_of_Ash
                         {
                             Items.items_stats.Add($"{Items.easy_weapons[rnd_weapon]}", weapon_dmg);
                         }
-                        if (Items.items_stats.ContainsKey(Items.easy_weapons[rnd_weapon]));
+                        if (Items.items_stats.ContainsKey(Items.easy_weapons[rnd_weapon]))
                         {
                             string klic = Items.easy_weapons[rnd_weapon];
                             var Oldweapon_dmg = Items.items_stats[klic];
